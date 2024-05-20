@@ -16,11 +16,10 @@ int main()
         "##########"
     };
 
-    constexpr size_t rows = 10;
-    constexpr size_t cols = 10;
+   
 
     TerminalUI* terminalui = new TerminalUI();
-    Level* level = new Level(rows, cols, l);
+    Level* level = new Level(10,10, l);
 
     DungeonCrawler dungeonCrawler(terminalui, level);
 
