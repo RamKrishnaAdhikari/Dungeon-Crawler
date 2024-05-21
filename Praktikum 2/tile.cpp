@@ -58,21 +58,25 @@ bool Tile::hasCharacter() const
 
 bool Tile::moveTo(Tile* destTile, Character* who)
 {
-    if(destTile->getTexture()!="#"){
-        std::pair<bool, Tile *> dest_Pair=destTile->onEnter(who);
-        if(onLeave(destTile,who)==true && dest_Pair.first==true) {
-            if(dest_Pair.second!=nullptr)
+    if (this->onLeave(destTile, who))
+    {
+        if (destTile->onEnter(who).first)
+        {
+            if (destTile->onEnter(who).second == nullptr)
             {
+                destTile->setCharacter(who);
                 this->setCharacter(nullptr);
-                dest_Pair.second->setCharacter(who);
-                who->setCurrentTile(dest_Pair.second);
+                who->setCurrentTile(destTile);
                 return true;
-
             }
-            this->setCharacter(nullptr);
-            destTile->setCharacter(who);
-            who->setCurrentTile(destTile);
-            return true;
+            else
+            {
+                Tile* portalDestination = destTile->onEnter(who).second;
+                portalDestination->setCharacter(who);
+                this->setCharacter(nullptr);
+                who->setCurrentTile(portalDestination);
+                return true;
+            }
         }
     }
     return false;
