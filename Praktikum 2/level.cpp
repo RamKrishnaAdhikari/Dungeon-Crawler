@@ -49,7 +49,6 @@ Level::Level(int height, int width, const std::string& l) : height(height),
             {
                 map.at(i).at(j) = new Floor(".", i, j);
                 Character* character = new Character("X");
-                characters.push_back(character);
                 placeCharacter(character, i, j);
                 character->setCurrentTile(map.at(i).at(j));
             }
