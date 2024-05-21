@@ -1,7 +1,6 @@
 #include "terminalui.h"
 #include <iostream>
 
-
 void TerminalUI::draw(Level* level)
 {
     for (size_t i = 0; i < level->getHeight(); i++)
@@ -44,6 +43,7 @@ Input TerminalUI::move()
         return Input(0, 1, false);
     case 'X':
     case 'x':
+        std::cout << "Program wird beendet." << std::endl;
         return Input(0, 0, true);
     default:
         std::cerr << "Invalid Input. Please enter A, D, W, S, X." << std::endl;
