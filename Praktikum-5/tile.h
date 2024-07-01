@@ -26,8 +26,10 @@ public:
     virtual void setPortaltype(int newPortaltype);
     virtual int getFloor_tiletype() const;
     virtual void setFloor_tiletype(int newFloor_tiletype);
+    void removeCharacter();
     protected:
               Tile(const std::string& texture, int row, int column);
+
 private:
     int portalType;
     int floor_tileType;
