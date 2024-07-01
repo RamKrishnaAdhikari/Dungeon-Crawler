@@ -101,3 +101,9 @@ bool Character::isAlive() const
 {
     return alive;
 }
+void Character::die() {
+    alive = false;
+    if (currentTile) {
+        currentTile->removeCharacter();
+    }
+}
