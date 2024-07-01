@@ -253,13 +253,29 @@ void MainWindow::draw()
 
 void MainWindow::remove_exis_char()
 {
-    for(auto pos:characters){
+   /*for(auto pos:characters){
         QWidget* widget = ui_m->tiles->itemAtPosition(pos.first,pos.second)->widget();
         ui_m->tiles->removeWidget(widget);
         widget->setParent(nullptr);
         delete widget;
     }
     characters.clear();
+*/
+
+    for (auto pos : characters) {
+        QLayoutItem* item = ui_m->tiles->itemAtPosition(pos.first, pos.second);
+        if (!item) continue;
+
+        QWidget* widget = item->widget();
+        if (widget) {
+            ui_m->tiles->removeWidget(widget);
+            widget->deleteLater();
+        }
+    }
+    characters.clear();
+
+
+
 }
 
 void MainWindow::check_Won()
