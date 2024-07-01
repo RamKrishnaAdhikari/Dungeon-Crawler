@@ -19,6 +19,7 @@ bool Switch::onLeave(Tile *destTile, Character *who)
 std::pair<bool, Tile *> Switch::onEnter(Character *who)
 {
     this->activate();
+    /*
     if (this->hasCharacter())
     {
         Character* present_char = this->getCharacter();
@@ -45,4 +46,28 @@ std::pair<bool, Tile *> Switch::onEnter(Character *who)
         }
     }
     return {true, nullptr};
+*/
+
+    if (this->hasCharacter()) {
+        Character* defender = this->getCharacter();
+
+        // Combat logic
+        int damage_to_defender = std::min(defender->getHitpoints(), who->getStrength());
+        int damage_to_attacker = std::min(who->getHitpoints(), defender->getStrength());
+
+        defender->setHitpoints(defender->getHitpoints() - damage_to_defender);
+        who->setHitpoints(who->getHitpoints() - damage_to_attacker);
+
+        if (defender->getHitpoints() <= 0) {
+            defender->die();
+            return {true, nullptr}; // Allow movement if defender dies
+        }
+
+        if (who->getHitpoints() <= 0) {
+            who->die();
+        }
+        return {false, nullptr}; // Prevent movement after combat
+    }
+    return {true, nullptr};
+
 }
