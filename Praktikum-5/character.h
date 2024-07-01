@@ -27,6 +27,7 @@ public:
     void setStamina(int newStamina);   
     int getStrength() const;
     void setStrength(int newStrength);
+    void die();
 
 
 
