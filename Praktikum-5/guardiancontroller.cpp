@@ -16,7 +16,7 @@ GuardianController::GuardianController()
     }
     else
     {
-        movem_str = "828282";
+        movem_str = "4828282";
         for (char c : movem_str) {
             if (isdigit(c)) {
                 result.push_back(c - '0');
@@ -27,7 +27,7 @@ GuardianController::GuardianController()
 
 Input_gui GuardianController::move()
 {
-    int index = result.at(0);
+   /* int index = result.at(0);
     result.erase(result.begin()+0);
     result.push_back(index);
 
@@ -49,6 +49,27 @@ Input_gui GuardianController::move()
             return terminate;
             break;
         }
+    }
+*/
+    if (result.empty()) {
+        return terminate;
+    }
+
+    int index = result.front();
+    result.erase(result.begin());
+    result.push_back(index);
+
+    switch (index) {
+    case 8:
+        return up;
+    case 6:
+        return right;
+    case 2:
+        return down;
+    case 4:
+        return left;
+    default:
+        return terminate;
     }
 }
 
