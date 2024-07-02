@@ -7,7 +7,8 @@ GuardianController::GuardianController()
     if (found == false)
     {
         movem_str = "66444466";
-        for (char c : movem_str) {
+        for (char c : movem_str)
+        {
             if (isdigit(c)) {
                 result.push_back(c - '0');
             }
@@ -16,8 +17,9 @@ GuardianController::GuardianController()
     }
     else
     {
-        movem_str = "4828282";
-        for (char c : movem_str) {
+        movem_str = "828282";
+        for (char c : movem_str)
+        {
             if (isdigit(c)) {
                 result.push_back(c - '0');
             }
@@ -51,7 +53,8 @@ Input_gui GuardianController::move()
         }
     }
 */
-    if (result.empty()) {
+    if (result.empty())
+    {
         return terminate;
     }
 
@@ -59,7 +62,8 @@ Input_gui GuardianController::move()
     result.erase(result.begin());
     result.push_back(index);
 
-    switch (index) {
+    switch (index)
+    {
     case 8:
         return up;
     case 6:
