@@ -1,5 +1,6 @@
 #ifndef DUNGEONCRAWLER_H
 #define DUNGEONCRAWLER_H
+<<<<<<< HEAD
 #include "level.h"
 #include "list.h"
 
@@ -31,6 +32,20 @@ private:
     bool lootchest_found;
     bool human_alive;
     int level_num;
+=======
+#include "terminalui.h"
+#include "level.h"
+
+class DungeonCrawler
+{
+public:
+    DungeonCrawler(Level* currentLevel);
+    ~DungeonCrawler();
+    bool turn(Input input_terminal);
+    Level* getLevel() const;
+private:
+    Level* currentLevel;
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 };
 
 #endif // DUNGEONCRAWLER_H

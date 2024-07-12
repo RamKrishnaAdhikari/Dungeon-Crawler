@@ -1,5 +1,6 @@
 #include "portal.h"
 
+<<<<<<< HEAD
 Portal::Portal(int row, int col, std::string texture, int connector):
     Tile(row, col, texture),
     destination(nullptr),
@@ -52,12 +53,17 @@ void Portal::setConnector(int newConnector)
 {
     connector = newConnector;
 }
+=======
+Portal::Portal(const std::string& texture, int row, int column) : Tile(texture, row, column), destination(nullptr)
+{}
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 
 void Portal::setDestination(Portal* newDestination)
 {
     destination = newDestination;
 }
 
+<<<<<<< HEAD
 int Portal::getPortal_type() const
 {
     return Tile::getPortal_type();
@@ -72,4 +78,11 @@ QPixmap *Portal::getTex_ui() const
 {
     return Tile::getTex_ui();
 }
+=======
+std::pair<bool, Tile*> Portal::onEnter(Character* who)
+{
+    return {true, destination};
+}
+
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 

@@ -1,4 +1,5 @@
 #include "tile.h"
+<<<<<<< HEAD
 #include "random.h"
 
 Tile::Tile(int row, int col, std::string texture):
@@ -19,6 +20,39 @@ Tile::~Tile()
     tex_ui = nullptr;
     delete character;
     character = nullptr;
+=======
+#include "character.h"
+
+Tile::Tile(const std::string& texture, int row, int column) : texture(texture),
+    character(nullptr),
+    row(row),
+    column(column)
+{}
+
+void Tile::setTexture(const std::string& newTexture)
+{
+    texture = newTexture;
+}
+
+void Tile::setCharacter(Character* newCharacter)
+{
+    character = newCharacter;
+}
+
+Character* Tile::getCharacter() const
+{
+    return character;
+}
+
+int Tile::getRow() const
+{
+    return row;
+}
+
+int Tile::getColumn() const
+{
+    return column;
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 }
 
 std::string Tile::getTexture() const
@@ -28,6 +62,7 @@ std::string Tile::getTexture() const
 
 bool Tile::hasCharacter() const
 {
+<<<<<<< HEAD
     if(character!=nullptr){
         return true;
     }
@@ -76,6 +111,38 @@ bool Tile::moveTo(Tile* destTile, Character* who)
                 port_dest->setCharacter(who);
                 this->setCharacter(nullptr);
                 who->setChar_tile(port_dest);
+=======
+    if (character != nullptr)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool Tile::moveTo(Tile* destTile, Character* who)
+{
+    if (this->onLeave(destTile, who))
+    {
+        std::pair<bool, Tile*> result = destTile->onEnter(who);
+        if (result.first)
+        {
+            if (result.second == nullptr)
+            {
+                destTile->setCharacter(who);
+                this->setCharacter(nullptr);
+                who->setCurrentTile(destTile);
+                return true;
+            }
+            else
+            {
+                Tile* portalDestination = destTile->onEnter(who).second;
+                portalDestination->setCharacter(who);
+                this->setCharacter(nullptr);
+                who->setCurrentTile(portalDestination);
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
                 return true;
             }
         }
@@ -88,6 +155,7 @@ bool Tile::onLeave(Tile* destTile, Character* who)
     return true;
 }
 
+<<<<<<< HEAD
 std::pair<bool, Tile*> Tile::onEnter(Character* who)
 {
     if(this->hasCharacter()){
@@ -174,3 +242,8 @@ std::pair<int, int> Tile::getCords() const
 {
     return {row, col};
 }
+=======
+
+
+
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d

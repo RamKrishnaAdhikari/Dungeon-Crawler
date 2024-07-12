@@ -2,6 +2,7 @@
 #define FLOOR_H
 #include "tile.h"
 
+<<<<<<< HEAD
 class Floor : public Tile
 {
 public:
@@ -12,6 +13,13 @@ public:
     std::pair<bool, Tile*>onEnter(Character* who) override;
     QPixmap* getTex_ui() const override;
 
+=======
+class Floor : virtual public Tile
+{
+ public:
+    Floor(const std::string& texture, int row, int column);
+    std::pair<bool, Tile*> onEnter(Character* who) override;
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 };
 
 #endif // FLOOR_H

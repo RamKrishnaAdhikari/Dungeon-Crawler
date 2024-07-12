@@ -4,6 +4,7 @@
 
 class Portal : public Tile
 {
+<<<<<<< HEAD
 public:
     Portal(int row, int col, std::string texture, int connector);
     virtual ~Portal();
@@ -21,6 +22,16 @@ public:
 private:
     Portal* destination;
     int connector;
+=======
+ public:
+    Portal(const std::string& texture, int row, int column);
+    void setDestination(Portal* newDestination);
+
+    std::pair<bool, Tile*> onEnter(Character* who) override;
+
+ private:
+    Portal* destination;
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 };
 
 #endif // PORTAL_H

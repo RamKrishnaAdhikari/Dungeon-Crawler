@@ -1,13 +1,20 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
+<<<<<<< HEAD
 #include <string>
 #include "abstractcontroller.h"
+=======
+#include "abstractcontroller.h"
+#include "input.h"
+#include <string>
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 
 class Tile;
 
 class Character
 {
 public:
+<<<<<<< HEAD
     Character(std::string texture, int strength, int stamina, bool hum = true);
 
     std::string getTexture() const;
@@ -44,6 +51,22 @@ private:
     int stamina;
     int hitpoints;
     bool alive;
+=======
+    Character(const std::string& texture);
+
+    std::string getTexture() const;
+    void setCurrentTile(Tile* tile);
+    Tile* getCurrentTile() const;
+    Input move(char input);
+    Input getMoveDirection() const;
+    void setMoveDirection(const Input& newMoveDirection);
+
+private:
+    std::string texture;
+    Tile* currentTile;
+    AbstractController* abController;
+    Input moveDirection;
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 };
 
 #endif // CHARACTER_H

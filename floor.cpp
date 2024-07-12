@@ -1,5 +1,6 @@
 #include "floor.h"
 
+<<<<<<< HEAD
 Floor::Floor(int row, int col, std::string texture):
     Tile(row, col, texture)
 {
@@ -46,3 +47,13 @@ QPixmap* Floor::getTex_ui() const
 {
     return Tile::getTex_ui();
 }
+=======
+Floor::Floor(const std::string& texture, int row, int column) : Tile(texture, row, column)
+{}
+
+std::pair<bool, Tile*> Floor::onEnter(Character* who)
+{
+    return {true, nullptr};
+}
+
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d

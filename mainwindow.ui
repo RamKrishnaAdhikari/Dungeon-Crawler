@@ -303,7 +303,10 @@
     </item>
    </layout>
   </widget>
+<<<<<<< HEAD
   <widget class="QStatusBar" name="statusBar"/>
+=======
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
  </widget>
  <resources/>
  <connections/>

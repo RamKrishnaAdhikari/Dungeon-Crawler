@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>StartScreen</class>
+<<<<<<< HEAD
  <widget class="QMainWindow" name="StartScreen">
+=======
+ <widget class="QDialog" name="StartScreen">
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -20,8 +24,34 @@
    <string>StartScreen</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+<<<<<<< HEAD
    <layout class="QGridLayout" name="gridLayout"/>
   </widget>
+=======
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>2</width>
+     <height>2</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout"/>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>550</y>
+     <width>200</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
  </widget>
  <resources/>
  <connections/>

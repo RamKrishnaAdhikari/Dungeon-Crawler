@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 #include "character.h"
@@ -30,6 +31,12 @@ Character::Character(std::string texture, int strength, int stamina, bool hum):
 }
 
 Character::~Character()
+=======
+#include "character.h"
+
+Character::Character(const std::string& texture) : texture(texture),
+    currentTile(nullptr), abController(nullptr), moveDirection(Input(0, 1, false))
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 {}
 
 std::string Character::getTexture() const
@@ -37,6 +44,7 @@ std::string Character::getTexture() const
     return texture;
 }
 
+<<<<<<< HEAD
 Input_gui Character::move()
 {
     return abstrCon->move();
@@ -58,10 +66,29 @@ void Character::setMoveDirection(Input_gui newMoveDirection)
 }
 
 Input_gui Character::getMoveDirection() const
+=======
+void Character::setCurrentTile(Tile* tile)
+{
+    currentTile = tile;
+}
+
+Tile* Character::getCurrentTile() const
+{
+    return currentTile;
+}
+
+Input Character::move(char input)
+{
+    return abController->move(input);
+}
+
+Input Character::getMoveDirection() const
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 {
     return moveDirection;
 }
 
+<<<<<<< HEAD
 bool Character::isHuman() const
 {
     return human;
@@ -120,4 +147,9 @@ int Character::getHitpoints() const
 void Character::setHitpoints(int newHitpoints)
 {
     hitpoints = newHitpoints;
+=======
+void Character::setMoveDirection(const Input& newMoveDirection)
+{
+    moveDirection = newMoveDirection;
+>>>>>>> 76af6263b5e85f412b253687016dcb23b60a002d
 }
