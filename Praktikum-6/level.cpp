@@ -689,6 +689,12 @@ std::vector<Node*> Level::getPath(std::pair<int, int> start, std::pair<int, int>
         currentNode = currentNode->parent;
         step++;
     }
+    if(step==1)
+    {
+        path.resize(2);
+        path.at(0)=nullptr;
+        path.at(1)=currentNode;
+    }
     return path;
 }
 void Level::updateLvlString() {
