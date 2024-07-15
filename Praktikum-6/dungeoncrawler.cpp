@@ -108,7 +108,7 @@ bool DungeonCrawler::getLootchest_found() const
 }
 
 void DungeonCrawler::saveGame() {
-    std::ofstream file("/Users/vedantsorout/Desktop/Praktikum-6/build/save1.txt");
+    std::ofstream file("save1.txt");
 
     if (!file) {
         std::cerr << "Unable to open file" << std::endl;
@@ -166,8 +166,8 @@ void DungeonCrawler::saveGame() {
     file.close();
 }
 void DungeonCrawler::loadGame() {
-    std::remove("/Users/vedantsorout/Desktop/Praktikum-6/build/save.txt");
-    std::ifstream file("/Users/vedantsorout/Desktop/Praktikum-6/build/save1.txt");
+    std::remove("save.txt");
+    std::ifstream file("save1.txt");
 
     if (!file) {
         std::cerr << "Unable to open file for loading" << std::endl;
