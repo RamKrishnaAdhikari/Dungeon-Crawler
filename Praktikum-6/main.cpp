@@ -7,7 +7,7 @@
 #include <fstream>
 #include <iostream>
 #include <istream>
-
+#include<QDir>
 int main(int argc, char* argv[])
 {QApplication a(argc, argv);
     const std::string l={
@@ -53,8 +53,9 @@ int main(int argc, char* argv[])
     int rows;
     int cols;
     int level_num_tmp;
+    const std::string filename="save.txt";
 
-    std::ofstream file("/Users/vedantsorout/Desktop/Praktikum-6/build/save.txt");
+    std::ofstream file(filename);
     file << 2 << std::endl;
     file << 10 << std::endl;
     file << 10 << std::endl;
@@ -68,7 +69,7 @@ int main(int argc, char* argv[])
     file << -1 << std::endl;
     file.close();
 
-    std::ifstream infile("/Users/vedantsorout/Desktop/Praktikum-6/build/save.txt");
+    std::ifstream infile(filename);
     infile >> level_num_tmp;
     infile >> rows;
     infile >> cols;
@@ -97,3 +98,4 @@ int main(int argc, char* argv[])
     a.exec();
     return 0;
 }
+
